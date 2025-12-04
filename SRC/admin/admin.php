@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'adminweb') {
     header('Location: ../login.php');
     exit;
@@ -29,9 +28,15 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'adminweb') {
 
   <main class="container">
     <div class="card">
-      <h1>Bienvenue, <?php echo htmlspecialchars($_SESSION['login']); ?> (Admin Web)</h1>
-      <p class="note">Ici, vous gérerez l’administration globale de la plateforme (à venir).</p>
+      <h1>Bienvenue <?php echo htmlspecialchars($_SESSION['login']); ?></h1>
+      <p class="note">Gestion des comptes techniciens et des informations réutilisables.</p>
+      <ul>
+        <li><a href="create_tech.php">Créer un technicien</a></li>
+        <li><a href="manage_os.php">Gérer les systèmes d’exploitation</a></li>
+        <li><a href="manage_constructeur.php">Gérer les constructeurs</a></li>
+      </ul>
     </div>
   </main>
 </body>
 </html>
+

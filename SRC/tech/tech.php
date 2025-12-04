@@ -1,7 +1,5 @@
 <?php
 session_start();
-
-
 if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'tech') {
     header('Location: ../login.php');
     exit;
@@ -30,9 +28,14 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'tech') {
 
   <main class="container">
     <div class="card">
-      <h1>Bienvenue, <?php echo htmlspecialchars($_SESSION['login']); ?> (Technicien)</h1>
-      <p class="note">Ici, vous effectuerez les opérations techniques du parc (à venir).</p>
+      <h1>Bienvenue <?php echo htmlspecialchars($_SESSION['login']); ?></h1>
+      <p class="note">Actions disponibles sur le parc informatique.</p>
+      <ul>
+        <li><a href="list_machines.php">Consulter le parc informatique</a></li>
+        <li><a href="add_machine.php">Ajouter une machine</a></li>
+      </ul>
     </div>
   </main>
 </body>
 </html>
+
